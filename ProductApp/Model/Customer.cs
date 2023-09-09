@@ -42,7 +42,7 @@ namespace ProductApp.Model
         {
             string customerInfo = $"Customer Id: {Id}\n";
             customerInfo += $"Customer Name: {Name}\n";
-            customerInfo += $"Total orders/order count: {GetOrderCount()}\n\n";
+            customerInfo += $"Total Orders: {GetOrderCount()}\n\n";
 
             for (int i = 0; i < Orders.Count; i++)
             {
