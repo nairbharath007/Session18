@@ -8,13 +8,13 @@ namespace ProductApp.Model
 {
     internal class LineItem
     {
-        public int Id { get; set; }
+        public int LineItemId { get; set; }
         public int Quantity { get; set; }
         public Product Product { get; set; }
 
-        public LineItem(int id, int quantity, Product product)
+        public LineItem(int lineItemId, int quantity, Product product)
         {
-            Id = id;
+            LineItemId = lineItemId;
             Quantity = quantity;
             Product = product;
         }

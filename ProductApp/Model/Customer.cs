@@ -12,13 +12,13 @@ namespace ProductApp.Model
         //CultureInfo cultureInfo = new CultureInfo("hi-IN");
         //System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
 
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
         public string Name { get; set; }
         public List<Order> Orders { get; set; }
 
-        public Customer(int id, string name, List<Order> orders)
+        public Customer(int customerId, string name, List<Order> orders)
         {
-            Id = id;
+            CustomerId = customerId;
             Name = name;
             Orders = orders;
         }
@@ -40,7 +40,7 @@ namespace ProductApp.Model
 
         public string PrintCustomerInfo()
         {
-            string customerInfo = $"Customer Id: {Id}\n";
+            string customerInfo = $"Customer Id: {CustomerId}\n";
             customerInfo += $"Customer Name: {Name}\n";
             customerInfo += $"Total Orders: {GetOrderCount()}\n\n";
 
@@ -48,7 +48,7 @@ namespace ProductApp.Model
             {
                 Order order = Orders[i];
                 customerInfo += $"Order No. {i + 1}\n";
-                customerInfo += $"Order Id: {order.Id}\n";
+                customerInfo += $"Order Id: {order.OrderId}\n";
                 customerInfo += $"Order Date: {order.Date}\n\n";
 
                 customerInfo += "LineItemId\tProductId\tProductName\tQuantity\tUnitPrice\tDiscount%\tUnitCostAfterDiscount\tTotalLineItemCost\n";
@@ -57,7 +57,7 @@ namespace ProductApp.Model
                 foreach (var item in order.Items)
                 {
                     var product = item.Product;
-                    customerInfo += $"{item.Id,-12}\t{product.Id,-12}\t{product.Name,-12}\t" +
+                    customerInfo += $"{item.LineItemId,-12}\t{product.ProductId,-12}\t{product.Name,-12}\t" +
                         $"{item.Quantity,-8}\t{product.Price,-12:C2}\t{product.DiscountPercent}%\t\t" +
                         $"{product.CalculateDiscountedPrice():C2}\t\t\t{item.CalculateLineItemCost():C2}\n";
                 }

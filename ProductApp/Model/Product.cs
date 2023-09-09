@@ -11,14 +11,14 @@ namespace ProductApp.Model
     {
         
 
-        public int Id { get; set; }
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public double DiscountPercent { get; set; }
 
-        public Product(int id, string name, double price, double discountPercent)
+        public Product(int productId, string name, double price, double discountPercent)
         {
-            Id = id;
+            ProductId = productId;
             Name = name;
             Price = price;
             DiscountPercent = discountPercent;

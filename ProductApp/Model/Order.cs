@@ -8,13 +8,13 @@ namespace ProductApp.Model
 {
     internal class Order
     {
-        public int Id { get; set; }
+        public int OrderId { get; set; }
         public DateTime Date { get; set; }
         public List<LineItem> Items { get; set; }
 
-        public Order(int id, DateTime date, List<LineItem> items)
+        public Order(int orderId, DateTime date, List<LineItem> items)
         {
-            Id = id;
+            OrderId = orderId;
             Date = date;
             Items = items;
         }
